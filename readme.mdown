@@ -1,0 +1,17 @@
+# Max for Live Devices and Abstractions
+
+## mtr.drum-seq
+64 step drum polymetric drum sequencer. Intended to send trigger type notes not sustaining notes.
+
+## mtr.loop-seq
+16 step sequencer with no pitch lane, and very long durations. Used to play loops in Simpler either continuously or retriggered in time.
+
+## mtr.loop-player
+WIP attempt at a continuous loop player but for now I'm using loop-seq with Simpler.
+
+## Abstractions
+* mtr.sample-accurate-metro - takes raw ticks from Plugsync~ and outputs bangs. Sounds solid to my ears.
+* mtr.swingify - swings a metro. I'm using this with Plugsync~ and mtr.sample-accurate-metro
+* mtr.metro-swing - same logic as above but also contains a metro. Timing sounds less accurate in Live than above.
+* mtr.reset-counter-at-start - something every step sequencer needed, a way to get back to step 1 at timepoint 1.1.1
+* mtr.handle-single-note-sustaining-midi - the specific logic needed by these long time frame sequencers, where note on and note off are totally decoupled.
